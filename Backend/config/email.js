@@ -1,23 +1,48 @@
+
 const sendEmail = async ({ to, subject, html }) => {
-    if (!process.env.RESEND_API_KEY) {
-        throw new Error("RESEND_API_KEY is not configured");
+    try {
+        const apiKey = process.env.BREVO_API_KEY;
+        const senderEmail = process.env.BREVO_SENDER_EMAIL;
+
+        if (!apiKey || !senderEmail) {
+            throw new Error("Brevo environment variables are missing");
+        }
+
+        const response = await fetch(
+            "https://api.brevo.com/v3/smtp/email",
+            {
+                method: "POST",
+                headers: {
+                    "api-key": apiKey,
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    sender: {
+                        name: "MediMaintain",
+                        email: senderEmail
+                    },
+                    to: [{ email: to }],
+                    subject,
+                    htmlContent: html
+                })
+            }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                result.message || "Brevo email sending failed"
+            );
+        }
+
+        return result;
+
+    } catch (error) {
+        console.error("Brevo Email Error:", error.message);
+        throw error;
     }
-
-    const { Resend } = require("resend");
-    const resend = new Resend(process.env.RESEND_API_KEY);
-
-    const { data, error } = await resend.emails.send({
-        from: "MediMaintain <onboarding@resend.dev>",
-        to: [to],
-        subject,
-        html
-    });
-
-    if (error) {
-        throw new Error(error.message || "Email sending failed");
-    }
-
-    return data;
 };
 
 module.exports = sendEmail;
