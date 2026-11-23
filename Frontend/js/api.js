@@ -1,7 +1,7 @@
 
 const API_BASE_URL = window.MEDIMAINTAIN_API_BASE_URL ||
     (window.location.protocol === "file:"
-        ? "http://localhost:5000/api"
+        ? "https://medimaintain-bz7a.onrender.com/api"
         : ["localhost", "127.0.0.1"].includes(window.location.hostname)
             ? `${window.location.protocol}//${window.location.hostname}:5000/api`
             : `${window.location.origin}/api`);
