@@ -1,13 +1,25 @@
-const nodemailer = require("nodemailer");
 
-const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: Number(process.env.EMAIL_PORT || 465),
-    secure: Number(process.env.EMAIL_PORT || 465) === 465,
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+const { Resend } = require("resend");
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+const sendEmail = async ({ to, subject, html }) => {
+    if (!process.env.RESEND_API_KEY) {
+        throw new Error("RESEND_API_KEY is not configured");
     }
-});
 
-module.exports = transporter;
+    const { data, error } = await resend.emails.send({
+        from: "MediMaintain <onboarding@resend.dev>",
+        to: [to],
+        subject,
+        html
+    });
+
+    if (error) {
+        throw new Error(error.message || "Email sending failed");
+    }
+
+    return data;
+};
+
+module.exports = sendEmail;

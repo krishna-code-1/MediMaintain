@@ -14,7 +14,8 @@
     "express": "installed-by-npm",
     "express-session": "^1.19.0",
     "mongoose": "installed-by-npm",
-    "nodemailer": "^10.6.1"
+    "nodemailer": "^10.6.1",
+    "resend": "^6.39.0"
   },
   "devDependencies": {
     "nodemon": "installed-by-npm"
