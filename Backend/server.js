@@ -31,6 +31,7 @@ app.set("trust proxy", 1);
 const allowedOrigins = new Set([
     "http://127.0.0.1:5500",
     "http://localhost:5500",
+    "https://medimaintain.netlify.app",
     ...(process.env.FRONTEND_URL || "")
         .split(",")
         .map(origin => origin.trim().replace(/\/+$/, ""))
