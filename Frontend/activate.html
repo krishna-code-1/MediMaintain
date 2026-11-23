@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Account | MediMaintain</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/activate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="auth-page">
+
+    <main class="auth-card auth-card-activate">
+        <a class="auth-brand" href="login.html" aria-label="MediMaintain login">
+            <span class="auth-brand-mark" aria-hidden="true">+</span>
+            <span>MediMaintain</span>
+        </a>
+
+        <div class="auth-heading">
+            <p class="auth-eyebrow">Account setup</p>
+            <h2>Activate Your Account</h2>
+            <p>Create a password to access MediMaintain.</p>
+        </div>
+
+        <form id="activateForm">
+            <div class="auth-field">
+                <label for="password">New Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    required
+                    placeholder="Enter new password"
+                >
+            </div>
+
+            <div class="auth-field">
+                <label for="confirmPassword">Confirm Password</label>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    autocomplete="new-password"
+                    minlength="8"
+                    required
+                    placeholder="Confirm new password"
+                >
+            </div>
+
+            <button class="auth-submit" type="submit">Activate Account</button>
+        </form>
+
+        <p class="auth-message" id="activateMessage" role="status" aria-live="polite"></p>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/activate.js"></script>
+
+</body>
+</html>

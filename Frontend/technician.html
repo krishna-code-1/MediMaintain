@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Technician Dashboard | MediMaintain</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/technician-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="technician-page">
+
+    <div class="technician-container">
+
+        <header class="technician-header">
+            <h2>MediMaintain</h2>
+
+            <button id="logoutButton" class="btn btn-secondary" type="button">
+                Logout
+            </button>
+        </header>
+        <main class="technician-main">
+
+            <!-- Technician Profile -->
+            <section class="panel" id="technicianProfile">
+                <h2>Technician Profile</h2>
+                <p>Loading profile...</p>
+            </section>
+
+            <!-- Assigned Maintenance Tasks -->
+            <section class="panel" id="assignedTasks">
+                <h2>My Assigned Maintenance Tasks</h2>
+                <p>Loading assigned tasks...</p>
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/technician.js"></script>
+
+</body>
+</html>

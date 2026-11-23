@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediMaintain - Hospital Registration</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="auth-page">
+
+    <main class="login-container auth-card auth-card-register">
+        <a class="auth-brand" href="index.html" aria-label="MediMaintain home">
+            <span class="auth-brand-mark" aria-hidden="true">+</span>
+            <span>MediMaintain</span>
+        </a>
+        <div class="auth-heading">
+            <p class="auth-eyebrow">Get started</p>
+            <h1>Register your hospital</h1>
+            <p>Create your hospital workspace and administrator account.</p>
+        </div>
+
+        <form id="registerForm">
+
+            <h2 class="auth-section-title">Hospital details</h2>
+
+            <div class="auth-form-grid">
+                <div class="auth-field auth-field-wide">
+                    <label for="hospitalName">Hospital Name</label>
+                    <input type="text" id="hospitalName" autocomplete="organization" placeholder="CityCare General Hospital" required>
+                </div>
+
+                <div class="auth-field">
+                    <label for="email">Hospital Email</label>
+                    <input type="email" id="email" autocomplete="email" placeholder="contact@hospital.com" required>
+                </div>
+
+                <div class="auth-field">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" autocomplete="tel" placeholder="+1 555 000 0000" required>
+                </div>
+
+                <div class="auth-field auth-field-wide">
+                    <label for="address">Hospital Address</label>
+                    <textarea id="address" autocomplete="street-address" rows="3" placeholder="Street address, city, region" required></textarea>
+                </div>
+            </div>
+
+            <h2 class="auth-section-title auth-section-admin">Administrator account</h2>
+
+            <div class="auth-form-grid">
+                <div class="auth-field">
+                    <label for="adminName">Admin Name</label>
+                    <input type="text" id="adminName" autocomplete="name" placeholder="Administrator name" required>
+                </div>
+
+                <div class="auth-field">
+                    <label for="adminEmail">Admin Email</label>
+                    <input type="email" id="adminEmail" autocomplete="email" placeholder="admin@hospital.com" required>
+                </div>
+
+                <div class="auth-field auth-field-wide">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" required>
+                </div>
+            </div>
+
+            <button class="auth-submit" type="submit">Create hospital account</button>
+
+            <p class="auth-message" id="registerMessage" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="auth-switch">Already registered? <a href="login.html">Sign in</a></p>
+        <p class="auth-footnote">Your hospital information is used to set up your MediMaintain workspace.</p>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/register.js"></script>
+
+</body>
+</html>

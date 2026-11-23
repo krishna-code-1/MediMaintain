@@ -1,0 +1,7 @@
+.auth-card-register { width: min(100%, 700px); }
+.auth-section-title { margin: 0.25rem 0 0; padding-bottom: 0.65rem; border-bottom: 1px solid var(--border); color: #334155; font-size: 0.82rem; font-weight: 750; letter-spacing: 0.06em; text-transform: uppercase; }
+.auth-section-admin { margin-top: 0.6rem; }
+.auth-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem 1rem; }
+.auth-field-wide { grid-column: 1 / -1; }
+.auth-card-register form { gap: 1rem; }
+@media (max-width: 600px) { .auth-form-grid { grid-template-columns: 1fr; } .auth-field-wide { grid-column: auto; } }

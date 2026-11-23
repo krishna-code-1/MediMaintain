@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediMaintain - Login</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body class="auth-page">
+
+    <main class="login-container auth-card auth-card-login">
+        <a class="auth-brand" href="index.html" aria-label="MediMaintain home">
+            <span class="auth-brand-mark" aria-hidden="true">+</span>
+            <span>MediMaintain</span>
+        </a>
+        <div class="auth-heading">
+            <p class="auth-eyebrow">Hospital equipment care</p>
+            <h1>Welcome back</h1>
+            <p>Sign in to manage your hospital equipment and maintenance.</p>
+        </div>
+
+        <form id="loginForm">
+            <div class="auth-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" autocomplete="email" placeholder="you@hospital.com" required>
+            </div>
+
+            <div class="auth-field">
+                <label for="password">Password</label>
+                <input type="password" id="password" autocomplete="current-password" placeholder="Enter your password" required>
+            </div>
+
+            <button class="auth-submit" type="submit">Sign in</button>
+            <p class="auth-message" id="loginMessage" role="status" aria-live="polite"></p>
+        </form>
+
+        <p class="auth-switch">New to MediMaintain? <a href="register.html">Register your hospital</a></p>
+        <p class="auth-footnote">Secure access for hospital administrators and care teams.</p>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

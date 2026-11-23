@@ -1,0 +1,5 @@
+.eqm-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.9rem; margin: 0 0 1.5rem; }
+.eqm-summary-card { position: relative; min-height: 108px; padding: 1.15rem 1.25rem; border: 1px solid var(--border); border-radius: 0.9rem; background: #fff; box-shadow: var(--shadow); color: #65798e; font-size: 0.8rem; font-weight: 650; }
+.eqm-summary-card::before { position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--warning); content: ""; }
+.eqm-summary-card:nth-child(2)::before { background: var(--danger); }
+.eqm-summary-card strong { display: block; margin-top: 0.55rem; color: #102a43; font-size: 1.85rem; }

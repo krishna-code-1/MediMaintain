@@ -1,0 +1,8 @@
+.technician-management-panel { padding: 1.5rem; }
+#technician-form { margin-top: 1rem; }
+.eqm-heading { margin-bottom: 1.35rem; }
+.eqm-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.technician-form-actions { display: flex; justify-content: flex-end; margin-top: 1.25rem; }
+#technician-message { margin: 1rem 0 0; padding: 0.7rem 0.8rem; border: 1px solid #bee2c9; border-radius: var(--radius-sm); background: #edf8f1; color: #14723d; font-size: 0.84rem; font-weight: 650; }
+#technician-message.message-error, #technician-message.error { border-color: #f3c2bc; background: #fff0ee; color: #b42318; }
+@media (max-width: 600px) { .eqm-form-grid { grid-template-columns: 1fr; } .technician-form-actions, .technician-form-actions .btn { width: 100%; } }
