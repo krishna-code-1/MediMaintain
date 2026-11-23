@@ -244,11 +244,6 @@
                                 </div>
 
                                 <div class="eqm-field">
-                                    <label>Assigned Technician</label>
-                                    <input name="assignedTechnician">
-                                </div>
-
-                                <div class="eqm-field">
                                     <label>Notes</label>
                                     <textarea name="notes" rows="3"></textarea>
                                 </div>
