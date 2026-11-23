@@ -1,10 +1,11 @@
 
-const API_BASE_URL = window.MEDIMAINTAIN_API_BASE_URL ||
-    (window.location.protocol === "file:"
-        ? "https://medimaintain-bz7a.onrender.com/api"
-        : ["localhost", "127.0.0.1"].includes(window.location.hostname)
+const API_BASE_URL =
+    window.MEDIMAINTAIN_API_BASE_URL ||
+    (
+        ["localhost", "127.0.0.1"].includes(window.location.hostname)
             ? `${window.location.protocol}//${window.location.hostname}:5000/api`
-            : `${window.location.origin}/api`);
+            : "https://medimaintain-bz7a.onrender.com/api"
+    );
 
 const apiRequest = async (endpoint, options = {}) => {
     try {
@@ -13,26 +14,28 @@ const apiRequest = async (endpoint, options = {}) => {
             credentials: "include",
             headers: {
                 "Content-Type": "application/json",
-                "ngrok-skip-browser-warning": "true",
                 ...options.headers
             }
         });
 
         let data;
+
         try {
             data = await response.json();
         } catch {
             throw new Error(
-                `The server returned an invalid response (HTTP ${response.status}).`
+                `Invalid server response (HTTP ${response.status}).`
             );
         }
 
         if (!response.ok) {
-            throw new Error(data?.message || "Something went wrong");
+            throw new Error(
+                data?.message || `Request failed (HTTP ${response.status}).`
+            );
         }
 
         if (data?.success === false) {
-            throw new Error(data.message || "Something went wrong");
+            throw new Error(data.message || "Something went wrong.");
         }
 
         return data;
@@ -40,9 +43,10 @@ const apiRequest = async (endpoint, options = {}) => {
     } catch (error) {
         const apiError = error instanceof TypeError
             ? new Error(
-                `Cannot reach ${API_BASE_URL}. Check that the backend is running and its CORS settings allow ${window.location.origin}.`
+                `Cannot connect to backend: ${API_BASE_URL}. Check backend availability and CORS settings.`
             )
             : error;
+
         console.error("API Error:", apiError.message);
         throw apiError;
     }
