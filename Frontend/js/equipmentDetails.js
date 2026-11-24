@@ -69,7 +69,6 @@ async function setupEquipmentDetailsPage() {
                         <tr><th>Purchase Date</th><td>${formatEquipmentDate(equipment.purchaseDate)}</td></tr>
                         <tr><th>Last Maintenance</th><td>${formatEquipmentDate(equipment.lastMaintenanceDate)}</td></tr>
                         <tr><th>Next Maintenance</th><td>${formatEquipmentDate(equipment.nextMaintenanceDate)}</td></tr>
-                        <tr><th>Assigned Technician</th><td>${escapeEquipmentHTML(equipment.assignedTechnician || "-")}</td></tr>
                         <tr><th>Notes</th><td>${escapeEquipmentHTML(equipment.notes || "-")}</td></tr>
                     </tbody>
                 </table>
